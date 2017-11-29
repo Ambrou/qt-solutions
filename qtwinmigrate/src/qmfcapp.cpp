@@ -302,17 +302,20 @@ QApplication *QMfcApp::instance(CWinApp *mfcApp)
 #endif
 	QStringList arglist = QString(exeName + " " + cmdLine).split(' ');
 
-	mfc_argc = arglist.count();
+	mfc_argc = 0;
+	//c_argv[0] = 0;
+	//c_argc = arglist.count();
 	mfc_argv = new char*[mfc_argc+1];
-	int a;
+	/*int a = 0;
 	for (a = 0; a < mfc_argc; ++a) {
 	    QString arg = arglist[a];
 	    mfc_argv[a] = new char[arg.length()+1];
-	    qstrcpy(mfc_argv[a], arg.toLocal8Bit().data());
+		std::string tmp = arg.toStdString();
+	    qstrcpy(mfc_argv[a], tmp.c_str());
 	}
-	mfc_argv[a] = 0;
+	mfc_argv[a] = 0;*/
     }
-
+	mfc_argv[0] = 0;
     return new QMfcApp(mfcApp, mfc_argc, mfc_argv);
 }
 

@@ -48,6 +48,10 @@
 
 #include <qmfcapp.h>
 
+
+#include <qwinwidget.h>
+#include <QToolBar>
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -104,16 +108,28 @@ BOOL WindowsApp::InitInstance()
 		WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL,
 		NULL);
 
-
+	
 
 	pFrame->ShowWindow(SW_SHOW);
 	pFrame->UpdateWindow();
+
+
 
 	return TRUE;
 }
 
 BOOL WindowsApp::Run()
 {
+	winWidget = new QWinWidget(m_pMainWnd);
+
+	toolbar = new QToolBar(QString("new toolbar"), winWidget);
+
+	toolbar->addAction("action1");
+	toolbar->addAction("action2");
+	toolbar->addSeparator();
+	toolbar->addAction("action3");
+	toolbar->show();
+
     return QMfcApp::run( this );
 }
 

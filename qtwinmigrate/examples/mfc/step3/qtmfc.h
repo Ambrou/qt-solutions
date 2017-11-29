@@ -54,6 +54,11 @@
 
 #include "resource.h"       // main symbols
 
+class QToolBar;
+class QWinWidget;
+class QMainWindow;
+class QHBoxLayout;
+
 /////////////////////////////////////////////////////////////////////////////
 // WindowsApp:
 // See QtMfc.cpp for the implementation of this class
@@ -79,6 +84,12 @@ public:
 	afx_msg void OnAppAbout();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+private:
+	QWinWidget *winWidget;
+	QToolBar *toolbar;
+	QMainWindow *window;
+	QHBoxLayout *hbox;
 };
 
 /////////////////////////////////////////////////////////////////////////////

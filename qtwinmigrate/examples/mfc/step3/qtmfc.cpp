@@ -49,6 +49,11 @@
 #include <qmfcapp.h>
 #include <qwinwidget.h>
 #include <QMessageBox>
+#include <QMainWindow>
+#include <QToolBar>
+#include <QDockWidget>
+#include <QHBoxLayout>
+#include <QPushButton>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -126,7 +131,37 @@ BOOL WindowsApp::Run()
 // App command to run the dialog
 void WindowsApp::OnAppAbout()
 {
-    QWinWidget win( theApp.m_pMainWnd );
-    win.showCentered();
-    QMessageBox::about( &win, "About QtMfc", "QtMfc Version 1.0\nCopyright (C) 2003" );
+	/*
+	winWidget = new QWinWidget(theApp.m_pMainWnd);
+	winWidget->show();
+
+	QDialog* dialog = new QDialog(winWidget);
+
+
+
+	toolbar = new QToolBar(dialog);
+	toolbar->addAction("First");
+	toolbar->addAction("Second");
+
+	dialog->show();
+	*/
+	/*
+	winWidget = new QWinWidget(theApp.m_pMainWnd);
+	winWidget->show();
+
+	QDialog* dialog = new QDialog(winWidget);
+
+	window = new QMainWindow(0);
+
+	toolbar = new QToolBar(window);
+	toolbar->addAction("First");
+	toolbar->addAction("Second");
+
+	window->addToolBar(toolbar);
+
+	window->setParent(dialog);
+
+	dialog->show();
+
+	*/
 }
